@@ -1,13 +1,12 @@
 package com.library_managment;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 
-@SpringBootApplication
-public class LibraryManagmentApplication {
-
+public class App {
     public static void main(String[] args) {
-        SpringApplication.run(LibraryManagmentApplication.class, args);
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("library");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
     }
-
 }
