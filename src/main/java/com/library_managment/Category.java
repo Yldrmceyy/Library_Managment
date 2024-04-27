@@ -2,19 +2,26 @@ package com.library_managment;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "category")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="category_id", columnDefinition = "serial")
+    @Column(name = "category_id", columnDefinition = "serial")
     private long id;
 
-    @Column(name = "category_name" , nullable = false)
+    @Column(name = "category_name", nullable = false)
     private String category_name;
 
     @Column(name = "category_description")
     private String description;
+
+
+    @ManyToMany(mappedBy = "categories", cascade = CascadeType.REMOVE)
+    private List<Book> books;
+
 
     public Category() {
     }
@@ -41,6 +48,14 @@ public class Category {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 }
 

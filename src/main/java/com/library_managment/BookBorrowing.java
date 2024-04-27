@@ -22,6 +22,11 @@ public class BookBorrowing {
     private LocalDate returnDate;
 
 
+    @ManyToOne
+    @JoinColumn(name="book_borrowing_id", referencedColumnName = "book_id")
+    private Book book;
+
+
     public BookBorrowing() {
     }
 
@@ -55,6 +60,15 @@ public class BookBorrowing {
 
     public void setReturnDate(LocalDate returnDate) {
         this.returnDate = returnDate;
+    }
+
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
     }
 }
 

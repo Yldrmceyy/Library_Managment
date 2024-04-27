@@ -3,6 +3,7 @@ package com.library_managment;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name= "author")
@@ -15,11 +16,17 @@ public class Author {
     @Column(name="author_name", length = 100, nullable = false )
     private String name;
 
+    @Temporal(TemporalType.DATE)
     @Column(name="author_birthday",nullable = false)
     private LocalDate birthDate;
 
     @Column(name="author_country",nullable = false)
     private String country;
+
+
+    @OneToMany(mappedBy = "author")
+    private List<Book> books;
+
 
     public Author() {
 
@@ -33,7 +40,7 @@ public class Author {
         this.id = id;
     }
 
-    public String getName() {
+    public String getName(String aaa) {
         return name;
     }
 
@@ -41,7 +48,7 @@ public class Author {
         this.name = name;
     }
 
-    public LocalDate getBirthDate() {
+    public LocalDate getBirthDate(String s) {
         return birthDate;
     }
 
@@ -55,6 +62,14 @@ public class Author {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public List<Book> getBookList() {
+        return books;
+    }
+
+    public void setBookList(List<Book> bookList) {
+        this.books = bookList;
     }
 
     @Override

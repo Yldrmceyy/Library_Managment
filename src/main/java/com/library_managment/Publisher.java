@@ -2,12 +2,15 @@ package com.library_managment;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="publisher")
 public class Publisher {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="publisher_id", columnDefinition = "serial")
     private int id;
 
     @Column(name="publisher_name", nullable = false)
@@ -20,8 +23,15 @@ public class Publisher {
     @Column(name="publisher_address", nullable = false)
     private String address;
 
+
+    @OneToMany(mappedBy = "publisher")
+    private List<Book> books;
+
+
+
     public Publisher() {
     }
+
 
     public int getId() {
         return id;
@@ -53,5 +63,13 @@ public class Publisher {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 }
