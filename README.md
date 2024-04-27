@@ -36,10 +36,10 @@ The project includes entity classes and their relationships to manage books, aut
 In the database schema of our library management system, the relationships between tables are defined as follows:
 
 **1- One-to-Many Relationship:** <br>
-A book can have one author, while an author can have multiple books.
-A book can have one publisher, while a publisher can have multiple books.
-A book can have multiple borrowing transactions, but each borrowing transaction belongs to only one book.
+- A book can have one author, while an author can have multiple books.
+- A book can have one publisher, while a publisher can have multiple books.
+- A book can have multiple borrowing transactions, but each borrowing transaction belongs to only one book.
 
 **2- Many-to-Many Relationship:** <br>
-A category can have multiple books, and a book can belong to multiple categories.
+- A category can have multiple books, and a book can belong to multiple categories.<br>
 These relationships are essential for organizing and managing the data effectively in our library management system. They ensure data integrity and provide the necessary structure for querying and retrieving information about books, authors, publishers, categories, and borrowing transactions.
