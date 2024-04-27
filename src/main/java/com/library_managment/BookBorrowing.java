@@ -22,7 +22,7 @@ public class BookBorrowing {
     private LocalDate returnDate;
 
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name="book_borrowing_id", referencedColumnName = "book_id")
     private Book book;
 
